@@ -1,15 +1,14 @@
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Receipt {
 
-    private ArrayList<Product> products;
-    private BigDecimal totalPrice;
-    private BigDecimal totalTax;
+    public ArrayList<ReceiptProduct> receiptProducts;
+    public BigDecimal totalPrice;
+    public BigDecimal totalTax;
 
-    public Receipt(ArrayList<Product> products, BigDecimal totalPrice, BigDecimal totalTax) {
-        this.products = products;
+    public Receipt(ArrayList<ReceiptProduct> receiptProducts, BigDecimal totalPrice, BigDecimal totalTax) {
+        this.receiptProducts = receiptProducts;
         this.totalPrice = totalPrice;
         this.totalTax = totalTax;
     }
