@@ -3,12 +3,18 @@ import java.util.List;
 
 public class TaxCalculator {
 
-    public static BigDecimal importDuty = BigDecimal.valueOf(5);
-    public static BigDecimal basicTax = BigDecimal.valueOf(10);
-    public static BigDecimal roundFraction = BigDecimal.valueOf(0.05);
+    private BigDecimal importDuty;
+    private BigDecimal basicTax;
+    private BigDecimal roundFraction;
+
+    public TaxCalculator(BigDecimal importDuty, BigDecimal basicTax, BigDecimal roundFraction) {
+        this.importDuty = importDuty;
+        this.basicTax = basicTax;
+        this.roundFraction = roundFraction;
+    }
 
 
-    public static BigDecimal calculate(List<Product> products) {
+    public BigDecimal calculate(List<Product> products) {
         BigDecimal totalTax = BigDecimal.valueOf(0.0);
         for (Product p : products) {
             totalTax = totalTax.add(calculate(p));
@@ -16,13 +22,13 @@ public class TaxCalculator {
         return totalTax;
     }
 
-    public static BigDecimal calculate(Product product) {
+    public BigDecimal calculate(Product product) {
         BigDecimal taxPercent = calculateTaxPercent(product);
         BigDecimal taxValue = product.getPrice().multiply(taxPercent).divide(BigDecimal.valueOf(100));
         return roundValue(taxValue);
     }
 
-    private static BigDecimal calculateTaxPercent(Product product) {
+    private BigDecimal calculateTaxPercent(Product product) {
         BigDecimal taxPercent = BigDecimal.valueOf(0.0);
 
         if (product.isImported()) {
@@ -41,7 +47,7 @@ public class TaxCalculator {
     }
 
 
-    private static BigDecimal roundValue(BigDecimal val) {
+    private BigDecimal roundValue(BigDecimal val) {
         BigDecimal result = val;
         boolean needToRoundUp = val.scale() > 2;
         if (needToRoundUp) {

@@ -3,16 +3,22 @@ import java.util.List;
 
 public class PriceCalculator {
 
-    public static BigDecimal calculateReceiptTotalPrice(List<Product> products) {
+    TaxCalculator taxCalculator;
+
+    public PriceCalculator(TaxCalculator taxCalculator) {
+        this.taxCalculator = taxCalculator;
+    }
+
+    public BigDecimal calculate(List<Product> products) {
         BigDecimal totalPrice = BigDecimal.valueOf(0.0);
         for (Product p : products) {
-            totalPrice = totalPrice.add(calculateProductTotalPrice(p));
+            totalPrice = totalPrice.add(calculate(p));
         }
         return totalPrice;
     }
 
-    public static BigDecimal calculateProductTotalPrice(Product product) {
-        BigDecimal tax = (TaxCalculator.calculate(product));
+    public BigDecimal calculate(Product product) {
+        BigDecimal tax = (taxCalculator.calculate(product));
         BigDecimal totalPrice = product.getPrice().add(tax);
         return totalPrice;
     }
