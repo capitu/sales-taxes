@@ -11,16 +11,8 @@ public class PriceCalculator {
         return totalPrice;
     }
 
-    public static BigDecimal calculateReceiptTotalTax(List<Product> products) {
-        BigDecimal totalTax = BigDecimal.valueOf(0.0);
-        for (Product p : products) {
-            totalTax = totalTax.add(TaxCalculator.calculateProductTax(p));
-        }
-        return totalTax;
-    }
-
     public static BigDecimal calculateProductTotalPrice(Product product) {
-        BigDecimal tax = (TaxCalculator.calculateProductTax(product));
+        BigDecimal tax = (TaxCalculator.calculate(product));
         BigDecimal totalPrice = product.getPrice().add(tax);
         return totalPrice;
     }

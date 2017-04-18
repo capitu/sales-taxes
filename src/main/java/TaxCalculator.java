@@ -8,15 +8,15 @@ public class TaxCalculator {
     public static BigDecimal roundFraction = BigDecimal.valueOf(0.05);
 
 
-    public static BigDecimal calculateReceiptTotalTax(List<Product> products) {
+    public static BigDecimal calculate(List<Product> products) {
         BigDecimal totalTax = BigDecimal.valueOf(0.0);
         for (Product p : products) {
-            totalTax = totalTax.add(calculateProductTax(p));
+            totalTax = totalTax.add(calculate(p));
         }
         return totalTax;
     }
 
-    public static BigDecimal calculateProductTax(Product product) {
+    public static BigDecimal calculate(Product product) {
         BigDecimal taxPercent = calculateTaxPercent(product);
         BigDecimal taxValue = product.getPrice().multiply(taxPercent).divide(BigDecimal.valueOf(100));
         return roundValue(taxValue);
