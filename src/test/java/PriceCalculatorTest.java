@@ -1,4 +1,5 @@
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -6,9 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PriceCalculatorTest {
+    private TaxCalculator taxCalculator;
+    private PriceCalculator priceCalculator;
 
-    private TaxCalculator taxCalculator = new TaxCalculator(BigDecimal.valueOf(5), BigDecimal.valueOf(10), BigDecimal.valueOf(0.05));
-    private PriceCalculator priceCalculator = new PriceCalculator(taxCalculator);
+    @Before
+    public void setUp() {
+        taxCalculator = new TaxCalculator(BigDecimal.valueOf(5), BigDecimal.valueOf(10), BigDecimal.valueOf(0.05));
+        priceCalculator = new PriceCalculator(taxCalculator);
+    }
 
     @Test
     public void testNotImportedProductDoesNotChangeItsPrice() {

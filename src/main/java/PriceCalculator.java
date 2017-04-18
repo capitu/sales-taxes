@@ -3,7 +3,7 @@ import java.util.List;
 
 public class PriceCalculator {
 
-    TaxCalculator taxCalculator;
+    private TaxCalculator taxCalculator;
 
     public PriceCalculator(TaxCalculator taxCalculator) {
         this.taxCalculator = taxCalculator;

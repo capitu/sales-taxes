@@ -1,4 +1,5 @@
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -7,7 +8,12 @@ import java.util.List;
 
 public class TaxCalculatorTest {
 
-    private TaxCalculator taxCalculator = new TaxCalculator(BigDecimal.valueOf(5), BigDecimal.valueOf(10), BigDecimal.valueOf(0.05));
+    private TaxCalculator taxCalculator;
+
+    @Before
+    public void setUp() {
+        taxCalculator = new TaxCalculator(BigDecimal.valueOf(5), BigDecimal.valueOf(10), BigDecimal.valueOf(0.05));
+    }
 
     @Test
     public void testNotImportedExemptProductHasNoTaxApplied() {
