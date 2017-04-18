@@ -23,4 +23,8 @@ public class PriceCalculator {
         return totalPrice;
     }
 
+    public BigDecimal calculate(Product product, int quantity) {
+        return BigDecimal.valueOf(quantity).multiply(calculate(product));
+    }
+
 }

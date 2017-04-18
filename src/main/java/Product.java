@@ -14,6 +14,10 @@ public class Product {
         this.price = BigDecimal.valueOf(price);
     }
 
+    public String getProductId() {
+        return this.getName() + this.getType() + this.isImported() + this.getPrice();
+    }
+
     public String getName() {
         return name;
     }
