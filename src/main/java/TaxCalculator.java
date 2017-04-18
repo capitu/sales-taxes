@@ -1,10 +1,20 @@
 import java.math.BigDecimal;
+import java.util.List;
 
 public class TaxCalculator {
 
     public static BigDecimal importDuty = BigDecimal.valueOf(5);
     public static BigDecimal basicTax = BigDecimal.valueOf(10);
     public static BigDecimal roundFraction = BigDecimal.valueOf(0.05);
+
+
+    public static BigDecimal calculateReceiptTotalTax(List<Product> products) {
+        BigDecimal totalTax = BigDecimal.valueOf(0.0);
+        for (Product p : products) {
+            totalTax = totalTax.add(calculateProductTax(p));
+        }
+        return totalTax;
+    }
 
     public static BigDecimal calculateProductTax(Product product) {
         BigDecimal taxPercent = calculateTaxPercent(product);
