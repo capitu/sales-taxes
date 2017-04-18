@@ -1,13 +1,20 @@
+import java.io.PrintStream;
+
 public class ReceiptPrinter {
 
-    public static void print(Receipt receipt) {
+    public static void print(Receipt receipt, PrintStream printStream) {
+
         for (ReceiptProduct singleProduct : receipt.receiptProducts) {
-            System.out.println(singleProduct);
+            printStream.println(getSingleProductPrintLine(singleProduct));
         }
 
-        System.out.println("Sales Taxes: " + receipt.totalTax);
-        System.out.println("Total: " + receipt.totalPrice);
+        printStream.println("Sales Taxes: " + receipt.totalTax);
+        printStream.println("Total: " + receipt.totalPrice);
 
+    }
+
+    public static String getSingleProductPrintLine(ReceiptProduct singleProduct) {
+        return singleProduct.getQuantity() + " " + (singleProduct.getProduct().isImported() ? "imported " : "") + singleProduct.getProduct().getName() + ": " + singleProduct.getTotalPrice();
     }
 
 }
