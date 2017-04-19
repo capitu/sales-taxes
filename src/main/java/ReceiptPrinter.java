@@ -14,7 +14,7 @@ public class ReceiptPrinter {
     }
 
     public static String getSingleProductPrintLine(ReceiptProduct singleProduct) {
-        return singleProduct.getQuantity() + " " + (singleProduct.getProduct().isImported() ? "imported " : "") + singleProduct.getProduct().getName() + ": " + singleProduct.getTotalPrice();
+        return singleProduct.getQuantity() + " " + (singleProduct.isImported() ? "imported " : "") + singleProduct.getName() + ": " + singleProduct.getTotalPrice();
     }
 
 }

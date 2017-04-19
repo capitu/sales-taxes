@@ -2,23 +2,24 @@ import java.math.BigDecimal;
 
 public class ReceiptProduct {
 
-    private Product product;
+    private String name;
+    private boolean imported;
     private int quantity;
     private BigDecimal totalPrice;
 
-    public ReceiptProduct(Product product, int quantity, BigDecimal totalPrice) {
-        this.product = product;
+    public ReceiptProduct(String name, boolean imported, int quantity, BigDecimal totalPrice) {
+        this.name = name;
+        this.imported = imported;
         this.quantity = quantity;
         this.totalPrice = totalPrice;
     }
 
-    @Override
-    public String toString() {
-        return this.getQuantity() + " " + this.getProduct().getName() + ": " + this.getTotalPrice();
+    public String getName() {
+        return name;
     }
 
-    public Product getProduct() {
-        return product;
+    public boolean isImported() {
+        return imported;
     }
 
     public int getQuantity() {

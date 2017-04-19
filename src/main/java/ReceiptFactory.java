@@ -38,7 +38,7 @@ public class ReceiptFactory {
         for (Product product : products) {
             if (!productAlreadyAdded.contains(product.getProductId())) {
                 int productQuantity = productToQuantityMap.get(product.getProductId());
-                ReceiptProduct receiptProduct = new ReceiptProduct(product, productQuantity, priceCalculator.calculate(product, productQuantity));
+                ReceiptProduct receiptProduct = new ReceiptProduct(product.getName(), product.isImported(), productQuantity, priceCalculator.calculate(product, productQuantity));
                 receiptProducts.add(receiptProduct);
                 productAlreadyAdded.add(product.getProductId());
             }
