@@ -1,3 +1,5 @@
+package receipt;
+
 import java.math.BigDecimal;
 
 public class ReceiptProduct {

@@ -1,3 +1,9 @@
+package receipt;
+
+import product.Product;
+import utils.PriceCalculator;
+import utils.TaxCalculator;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
