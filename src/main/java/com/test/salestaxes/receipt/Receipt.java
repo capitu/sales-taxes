@@ -1,4 +1,4 @@
-package receipt;
+package com.test.salestaxes.receipt;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

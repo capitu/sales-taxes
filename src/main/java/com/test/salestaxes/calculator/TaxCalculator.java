@@ -1,6 +1,6 @@
-package utils;
+package com.test.salestaxes.calculator;
 
-import product.Product;
+import com.test.salestaxes.product.Product;
 
 import java.math.BigDecimal;
 import java.util.List;

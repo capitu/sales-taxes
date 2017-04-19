@@ -1,8 +1,8 @@
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import product.Product;
-import utils.TaxCalculator;
+import com.test.salestaxes.product.Product;
+import com.test.salestaxes.calculator.TaxCalculator;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

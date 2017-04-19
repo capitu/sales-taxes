@@ -1,7 +1,7 @@
-package utils;
+package com.test.salestaxes.printer;
 
-import receipt.Receipt;
-import receipt.ReceiptProduct;
+import com.test.salestaxes.receipt.Receipt;
+import com.test.salestaxes.receipt.ReceiptProduct;
 
 import java.io.PrintStream;
 

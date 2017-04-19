@@ -1,9 +1,11 @@
-import product.Product;
-import receipt.Receipt;
-import receipt.ReceiptFactory;
-import utils.PriceCalculator;
-import utils.ReceiptPrinter;
-import utils.TaxCalculator;
+package com.test.salestaxes;
+
+import com.test.salestaxes.product.Product;
+import com.test.salestaxes.receipt.Receipt;
+import com.test.salestaxes.receipt.ReceiptFactory;
+import com.test.salestaxes.calculator.PriceCalculator;
+import com.test.salestaxes.printer.ReceiptPrinter;
+import com.test.salestaxes.calculator.TaxCalculator;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
